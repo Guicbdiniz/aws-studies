@@ -185,16 +185,17 @@ The capstone project ties everything together: a real-world SaaS-like applicatio
 ```
 aws-studies/
 ├── README.md
-├── project-01-static-website/
-├── project-02-iam-deep-dive/
-├── project-03-url-shortener/
-├── project-04-ec2-web-server/
-├── project-05-ecommerce-api/
-├── project-06-ecs-microservice/
-├── project-07-rds-multi-tier/
-├── project-08-ha-web-platform/
-├── project-09-data-pipeline/
-└── project-10-capstone/
+└── projects/
+    ├── project-01-static-website/   🟢 Phase 1
+    ├── project-02-iam-deep-dive/    🟢 Phase 1
+    ├── project-03-url-shortener/    🟢 Phase 1
+    ├── project-04-ec2-web-server/   🟢 Phase 1
+    ├── project-05-ecommerce-api/    🟡 Phase 2
+    ├── project-06-ecs-microservice/ 🟡 Phase 2
+    ├── project-07-rds-multi-tier/   🟡 Phase 2
+    ├── project-08-ha-web-platform/  🔴 Phase 3
+    ├── project-09-data-pipeline/    🔴 Phase 3
+    └── project-10-capstone/         🔴 Phase 3
 ```
 
 Each project folder will contain:
