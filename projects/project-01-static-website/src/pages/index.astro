@@ -2,53 +2,92 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const skills = [
-  { category: "Cloud & DevOps", items: ["AWS", "Docker", "CI/CD", "Terraform"] },
-  { category: "Backend", items: ["Node.js", "Python", "REST APIs", "PostgreSQL"] },
-  { category: "Frontend", items: ["TypeScript", "React", "Astro", "CSS"] },
+  { category: "Languages", items: ["Go", "TypeScript", "Python", "JavaScript"] },
+  { category: "Frontend & Mobile", items: ["React", "React Native", "CSS", "Astro"] },
+  { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "Heroku"] },
+  { category: "Practices & Tools", items: ["TDD", "RabbitMQ", "REST APIs", "AI-Assisted Dev"] },
+];
+
+const experiences = [
+  {
+    company: "Mercado Livre",
+    role: "Software Engineer",
+    period: "Apr 2025 – Present",
+    description: "Working in the services team, developing the SDK and toolkits used by internal service teams.",
+  },
+  {
+    company: "BairesDev",
+    role: "Software Engineer",
+    period: "May 2023 – Apr 2025",
+    description: "Full Stack Web Development across multiple international clients.",
+  },
+  {
+    company: "Coinext",
+    role: "Junior Software Developer",
+    period: "Jan 2022 – Feb 2023",
+    description: "Mobile dev with React Native, web dev with React + Django, and web services in Go with RabbitMQ.",
+  },
+];
+
+const certifications = [
+  "Google Cloud Fundamentals: Core Infrastructure",
+  "Docker Mastery: with Kubernetes + Swarm",
+  "Working with Concurrency in Go",
+  "Go Design Patterns",
+  "C1 First — Score 198",
 ];
 
 const projects = [
   {
-    title: "Static Website on AWS",
+    title: "Static Portfolio on AWS",
     description:
-      "This very portfolio — deployed to S3, served via CloudFront CDN, with a custom domain on Route 53.",
+      "This very portfolio — deployed to S3, distributed globally via CloudFront, with a custom domain on Route 53 and HTTPS via ACM.",
     tags: ["AWS S3", "CloudFront", "Route 53", "Astro"],
     link: "https://github.com/Guicbdiniz/aws-studies",
   },
   {
     title: "Serverless URL Shortener",
     description:
-      "A fully serverless URL shortener built with Lambda, DynamoDB, and S3. Links expire automatically via DynamoDB TTL.",
-    tags: ["AWS Lambda", "DynamoDB", "API Gateway"],
+      "Fully serverless URL shortener built with Lambda and DynamoDB. Links auto-expire via DynamoDB TTL. Frontend hosted on S3 + CloudFront.",
+    tags: ["AWS Lambda", "DynamoDB", "API Gateway", "S3"],
     link: "https://github.com/Guicbdiniz/aws-studies",
   },
   {
     title: "EC2 Web Server + VPC",
     description:
-      "Custom VPC with public/private subnets, EC2 web server, CloudWatch monitoring, and automated alarms.",
+      "Custom VPC with public/private subnets, EC2 web server with Nginx, CloudWatch monitoring with custom metrics and automated alarms.",
     tags: ["EC2", "VPC", "CloudWatch", "IAM"],
     link: "https://github.com/Guicbdiniz/aws-studies",
   },
 ];
 ---
 
-<BaseLayout title="Guilherme C. Bdiniz · Software Engineer">
+<BaseLayout title="Guilherme Diniz · Software Engineer">
   <!-- HERO -->
   <section id="about" class="hero">
     <div class="hero-content">
       <p class="hero-greeting">
-        <span class="dot"></span> Available for opportunities
+        <span class="dot"></span> Open to new opportunities
       </p>
       <h1>
         Hi, I'm <span class="highlight">Guilherme</span>.<br />
-        I build things for the cloud.
+        I build for the web and the cloud.
       </h1>
       <p class="hero-sub">
-        Software engineer focused on cloud-native architectures, serverless systems,
-        and scalable backends. Currently deep-diving into AWS.
+        Software Engineer from Belo Horizonte, Brazil 🇧🇷. I work with
+        <strong>Go</strong>, <strong>TypeScript</strong> and <strong>Python</strong>,
+        and I'm currently deep-diving into AWS cloud-native architectures.
+        Currently at <strong>Mercado Livre</strong> building internal SDKs and toolkits.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">See my work</a>
+        <a
+          href="https://www.linkedin.com/in/guilhermediniz-874a98136"
+          target="_blank"
+          class="btn btn-ghost"
+        >
+          LinkedIn ↗
+        </a>
         <a
           href="https://github.com/Guicbdiniz"
           target="_blank"
@@ -64,18 +103,26 @@ const projects = [
           <span class="dot red"></span>
           <span class="dot yellow"></span>
           <span class="dot green"></span>
-          <span class="filename">about.ts</span>
+          <span class="filename">about.go</span>
         </div>
-        <pre><code><span class="kw">const</span> guilherme = &#123;
-  <span class="prop">role</span>: <span class="str">"Software Engineer"</span>,
-  <span class="prop">location</span>: <span class="str">"Brazil 🇧🇷"</span>,
-  <span class="prop">focus</span>: <span class="str">"AWS & Cloud Native"</span>,
-  <span class="prop">learning</span>: [
-    <span class="str">"EC2"</span>, <span class="str">"Lambda"</span>,
-    <span class="str">"ECS"</span>, <span class="str">"CDK"</span>
-  ],
-  <span class="prop">openTo</span>: <span class="kw">true</span>,
-&#125;;</code></pre>
+        <pre><code><span class="kw">type</span> <span class="type">Engineer</span> <span class="kw">struct</span> &#123;
+  Name     <span class="type">string</span>
+  Location <span class="type">string</span>
+  Company  <span class="type">string</span>
+  Stack    []<span class="type">string</span>
+  OpenTo   <span class="type">bool</span>
+&#125;
+
+<span class="kw">var</span> guilherme = <span class="type">Engineer</span>&#123;
+  Name:     <span class="str">"Guilherme Diniz"</span>,
+  Location: <span class="str">"Belo Horizonte, BR"</span>,
+  Company:  <span class="str">"Mercado Livre"</span>,
+  Stack:    []<span class="type">string</span>&#123;
+    <span class="str">"Go"</span>, <span class="str">"TypeScript"</span>,
+    <span class="str">"AWS"</span>, <span class="str">"Docker"</span>,
+  &#125;,
+  OpenTo: <span class="kw">true</span>,
+&#125;</code></pre>
       </div>
     </div>
   </section>
@@ -102,12 +149,36 @@ const projects = [
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-tag">// where I've worked</p>
+    <h2>Experience</h2>
+    <div class="timeline">
+      {
+        experiences.map((exp, i) => (
+          <div class="timeline-item">
+            <div class="timeline-marker">{i + 1}</div>
+            <div class="timeline-body">
+              <div class="timeline-header">
+                <h3>{exp.role}</h3>
+                <span class="company">{exp.company}</span>
+              </div>
+              <span class="period">{exp.period}</span>
+              <p>{exp.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!-- PROJECTS -->
   <section id="projects">
     <p class="section-tag">// things I've built</p>
-    <h2>Projects</h2>
+    <h2>AWS Projects</h2>
     <p class="section-sub">
       Hands-on AWS projects built as part of my cloud learning roadmap.
+      See the full roadmap on <a href="https://github.com/Guicbdiniz/aws-studies" target="_blank">GitHub ↗</a>.
     </p>
     <div class="projects-grid">
       {
@@ -130,15 +201,28 @@ const projects = [
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <p class="section-tag">// credentials</p>
+    <h2>Certifications & Courses</h2>
+    <ul class="cert-list">
+      {certifications.map((cert) => (
+        <li>
+          <span class="cert-icon">🏅</span> {cert}
+        </li>
+      ))}
+    </ul>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <p class="section-tag">// get in touch</p>
     <h2>Let's talk</h2>
     <p class="section-sub">
-      I'm always open to discussing new projects, cloud architecture, or just
-      geeking out about AWS.
+      Open to discussing new projects, cloud architecture, Go development,
+      or — why not — a Forró class in BH. 💃
     </p>
-    <a href="mailto:guicbdinizp@gmail.com" class="btn btn-primary btn-lg">
+    <a href="mailto:guicbdiniz@gmail.com" class="btn btn-primary btn-lg">
       Say hello →
     </a>
   </section>
@@ -176,7 +260,7 @@ const projects = [
 
   @keyframes pulse {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+    50%       { opacity: 0.4; }
   }
 
   h1 {
@@ -186,9 +270,7 @@ const projects = [
     margin-bottom: 1.25rem;
   }
 
-  .highlight {
-    color: var(--color-accent-light);
-  }
+  .highlight { color: var(--color-accent-light); }
 
   .hero-sub {
     color: var(--color-muted);
@@ -197,12 +279,15 @@ const projects = [
     margin-bottom: 2rem;
   }
 
+  .hero-sub strong { color: var(--color-text); }
+
   .hero-actions {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
   }
 
+  /* BUTTONS */
   .btn {
     display: inline-flex;
     align-items: center;
@@ -211,39 +296,18 @@ const projects = [
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.2s;
-    cursor: pointer;
   }
 
-  .btn-primary {
-    background: var(--color-accent);
-    color: white;
-  }
+  .btn-primary { background: var(--color-accent); color: white; }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
 
-  .btn-primary:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
-  }
+  .btn-ghost { border: 1px solid var(--color-border); color: var(--color-muted); }
+  .btn-ghost:hover { border-color: var(--color-accent); color: var(--color-text); }
 
-  .btn-ghost {
-    border: 1px solid var(--color-border);
-    color: var(--color-muted);
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--color-accent);
-    color: var(--color-text);
-  }
-
-  .btn-lg {
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-  }
+  .btn-lg { padding: 1rem 2.5rem; font-size: 1rem; }
 
   /* CODE CARD */
-  .hero-code {
-    display: flex;
-    justify-content: center;
-  }
+  .hero-code { display: flex; justify-content: center; }
 
   .code-card {
     background: var(--color-surface);
@@ -251,7 +315,7 @@ const projects = [
     border-radius: var(--radius);
     overflow: hidden;
     width: 100%;
-    max-width: 420px;
+    max-width: 440px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   }
 
@@ -263,11 +327,7 @@ const projects = [
     gap: 0.5rem;
   }
 
-  .code-header .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-  }
+  .code-header .dot { width: 12px; height: 12px; border-radius: 50%; }
   .code-header .dot.red    { background: #ff5f57; }
   .code-header .dot.yellow { background: #febc2e; }
   .code-header .dot.green  { background: #28c840; }
@@ -282,19 +342,19 @@ const projects = [
   pre {
     padding: 1.5rem;
     font-family: var(--font-mono);
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     line-height: 1.9;
     overflow-x: auto;
   }
 
   .kw   { color: #bd93f9; }
-  .prop { color: #8be9fd; }
+  .type { color: #8be9fd; }
   .str  { color: #f1fa8c; }
 
   /* SKILLS */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
@@ -307,12 +367,10 @@ const projects = [
     transition: border-color 0.2s;
   }
 
-  .skill-card:hover {
-    border-color: var(--color-accent);
-  }
+  .skill-card:hover { border-color: var(--color-accent); }
 
   .skill-card h3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--color-accent-light);
     margin-bottom: 1rem;
@@ -320,22 +378,94 @@ const projects = [
     letter-spacing: 0.05em;
   }
 
-  .skill-card ul {
-    list-style: none;
+  .skill-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .skill-card li { font-size: 0.95rem; color: var(--color-muted); }
+  .check { color: var(--color-accent); margin-right: 0.4rem; }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline {
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0;
+    position: relative;
   }
 
-  .skill-card li {
-    font-size: 0.95rem;
-    color: var(--color-muted);
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
   }
 
-  .check {
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-marker {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
     color: var(--color-accent);
-    margin-right: 0.4rem;
+    font-weight: 600;
+    z-index: 1;
   }
+
+  .timeline-body {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    flex: 1;
+    transition: border-color 0.2s;
+  }
+
+  .timeline-body:hover { border-color: var(--color-accent); }
+
+  .timeline-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+  }
+
+  .timeline-header h3 { font-size: 1rem; font-weight: 600; }
+
+  .company {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-accent-light);
+    background: rgba(124, 106, 247, 0.12);
+    border: 1px solid rgba(124, 106, 247, 0.25);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  .period {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-body p { font-size: 0.9rem; color: var(--color-muted); }
 
   /* PROJECTS */
   .section-sub {
@@ -343,6 +473,9 @@ const projects = [
     max-width: 560px;
     margin-bottom: 2.5rem;
   }
+
+  .section-sub a { color: var(--color-accent-light); }
+  .section-sub a:hover { color: var(--color-accent); }
 
   .projects-grid {
     display: grid;
@@ -361,47 +494,18 @@ const projects = [
     transition: border-color 0.2s, transform 0.2s;
   }
 
-  .project-card:hover {
-    border-color: var(--color-accent);
-    transform: translateY(-4px);
-  }
+  .project-card:hover { border-color: var(--color-accent); transform: translateY(-4px); }
 
-  .project-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
+  .project-top { display: flex; justify-content: space-between; align-items: center; }
   .folder-icon { font-size: 1.75rem; }
 
-  .arrow {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    transition: color 0.2s;
-  }
+  .arrow { color: var(--color-muted); font-size: 1.1rem; transition: color 0.2s; }
+  .project-card:hover .arrow { color: var(--color-accent); }
 
-  .project-card:hover .arrow {
-    color: var(--color-accent);
-  }
+  .project-card h3 { font-size: 1.05rem; font-weight: 600; }
+  .project-card p  { font-size: 0.9rem; color: var(--color-muted); flex: 1; }
 
-  .project-card h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    flex: 1;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
 
   .tag {
     font-family: var(--font-mono);
@@ -413,12 +517,33 @@ const projects = [
     border-radius: 4px;
   }
 
-  /* CONTACT */
-  .contact {
-    text-align: center;
-    padding: 8rem 0;
+  /* CERTIFICATIONS */
+  .cert-list {
+    list-style: none;
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
+  .cert-list li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: border-color 0.2s;
+  }
+
+  .cert-list li:hover { border-color: var(--color-accent); color: var(--color-text); }
+  .cert-icon { font-size: 1.2rem; }
+
+  /* CONTACT */
+  .contact { text-align: center; padding: 8rem 0; }
   .contact h2 { font-size: 2.5rem; }
   .contact .section-sub { margin: 1rem auto 2.5rem; }
   .contact .btn { margin: 0 auto; }
@@ -431,9 +556,6 @@ const projects = [
       padding: 3rem 0;
       gap: 2.5rem;
     }
-
-    .hero-code {
-      order: -1;
-    }
+    .hero-code { order: -1; }
   }
 </style>
