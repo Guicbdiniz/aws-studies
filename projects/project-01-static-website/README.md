@@ -31,8 +31,8 @@ S3 Bucket (static files)
 ## 📋 Step-by-Step Plan
 
 ### Step 1 — Build the Static Site
-- [ ] Create a simple HTML/CSS website (or use a template)
-- [ ] Structure: `index.html`, `404.html`, `css/`, `images/`
+- [x] Build personal portfolio using Astro
+- [ ] Output static build with `npm run build` (`dist/`)
 
 ### Step 2 — Set Up S3
 - [ ] Create an S3 bucket (name it your domain, e.g. `my-site.com`)
@@ -72,11 +72,16 @@ S3 Bucket (static files)
 ```
 project-01-static-website/
 ├── README.md
+├── package.json
+├── astro.config.mjs
+├── public/
+│   ├── favicon.svg
+│   └── me.png
 ├── src/
-│   ├── index.html
-│   ├── 404.html
-│   └── css/
-│       └── styles.css
+│   ├── layouts/
+│   │   └── BaseLayout.astro
+│   └── pages/
+│       └── index.astro
 └── infra/
     ├── s3-bucket-policy.json
     └── cloudfront-oac.json
