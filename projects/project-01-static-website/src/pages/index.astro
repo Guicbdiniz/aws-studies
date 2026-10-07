@@ -98,6 +98,9 @@ const projects = [
       </div>
     </div>
     <div class="hero-code">
+      <div class="avatar-wrapper">
+        <img src="/me.png" alt="Guilherme Diniz" class="avatar" />
+      </div>
       <div class="code-card">
         <div class="code-header">
           <span class="dot red"></span>
@@ -306,8 +309,30 @@ const projects = [
 
   .btn-lg { padding: 1rem 2.5rem; font-size: 1rem; }
 
-  /* CODE CARD */
-  .hero-code { display: flex; justify-content: center; }
+  /* CODE CARD & AVATAR */
+  .hero-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .avatar-wrapper {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 10px 30px rgba(124, 106, 247, 0.25);
+    background: var(--color-surface);
+  }
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
   .code-card {
     background: var(--color-surface);
